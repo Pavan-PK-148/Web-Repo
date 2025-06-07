@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      height: 80px;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar h1 {
+      font-size: 24px;
+    }
+
+    .nav-buttons button {
+      margin-left: 15px;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .nav-buttons button:hover {
+      background-color: darkred;
+    }
+
+    .banner-section {
+      height: 200px;
+      width: 100%;
+    }
+
+    .banner-section img {
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+
+    .category-section, .arrival-section, .discount-section {
+      padding: 40px 20px;
+    }
+
+    .category-section ul,
+    .sub-section ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .category-section ul li,
+    .sub-section ul li {
+      list-style: none;
+      margin: 20px;
+      width: 150px;
+      text-align: center;
+    }
+
+    .product-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border: 3px double black;
+      border-radius: 10px;
+    }
+
+    .product-item span {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .arrivals, .new, .discount {
+      text-align: center;
+      font-size: 25px;
+      font-style: italic;
+      color: red;
+      text-decoration: underline;
+      margin-bottom: 20px;
+    }
+
+    .banner-2 {
+      height: 200px;
+      width: 100%;
+    }
+
+    .banner-2 img {
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+
+    .discount-section img {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      margin-left: 60px;
+      border-radius: 20px;
+    }
+
+    .category-section li:hover,
+    .sub-section li:hover {
+      transform: scale(1.1);
+      transition: 0.3s ease-in-out;
+    }
+    
+    .discount-section:hover {
+      transform: scale(1.1);
+      transition: 0.3s ease-in-out;
+    }
+    /* Footer */
+    .footer-section {
+      height: 100px;
+      background-color: #000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <div class="navbar">
+    <h1>My E-Commerce</h1>
+    <div class="nav-buttons">
+      <button onclick="document.getElementById('products').scrollIntoView()">Products</button>
+      <button onclick="document.getElementById('arrivals').scrollIntoView()">Arrivals</button>
+      <button onclick="document.getElementById('discounts').scrollIntoView()">Discounts</button>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner-section">
+    <img src="categories/banner-1.jpg" alt="banner">
+  </div>
+
+  <!-- Products Section -->
+  <div class="category-section" id="products">
+    <div class="new"><h2>New Products</h2></div>
+    <ul>
+      <li><div class="product-item"><img src="categories/arr_ac.jpg" alt=""><span>AC</span></div></li>
+      <li><div class="product-item"><img src="categories/arr_band.jpg" alt=""><span>Band</span></div></li>
+      <li><div class="product-item"><img src="categories/arr_head.jpg" alt=""><span>Headphones</span></div></li>
+      <li><div class="product-item"><img src="categories/arr_laptop.jpg" alt=""><span>Laptop</span></div></li>
+      <li><div class="product-item"><img src="categories/arr_mixer.jpg" alt=""><span>Mixer</span></div></li>
+      <li><div class="product-item"><img src="categories/arr_pad.jpg" alt=""><span>iPad</span></div></li>
+      <li><div class="product-item"><img src="categories/arr_phone.jpg" alt=""><span>iPhone</span></div></li>
+      <li><div class="product-item"><img src="categories/arr_pods.jpg" alt=""><span>AirPods</span></div></li>
+      <li><div class="product-item"><img src="categories/arr_speaker.jpg" alt=""><span>Speaker</span></div></li>
+      <li><div class="product-item"><img src="categories/arr_trimmer.jpg" alt=""><span>Trimmer</span></div></li>
+    </ul>
+  </div>
+
+  <!-- Arrivals Section -->
+  <div class="arrival-section" id="arrivals">
+    <div class="arrivals"><h2>New Arrivals</h2></div>
+    <div class="sub-section">
+      <ul>
+        <li><div class="product-item"><img src="arrivals/a_blue.jpg" alt=""><span>Bluetooth</span></div></li>
+        <li><div class="product-item"><img src="arrivals/a_buds.jpg" alt=""><span>Buds</span></div></li>
+        <li><div class="product-item"><img src="arrivals/a_mixer.jpg" alt=""><span>Mixer</span></div></li>
+        <li><div class="product-item"><img src="arrivals/a_p.jpg" alt=""><span>Phone</span></div></li>
+        <li><div class="product-item"><img src="arrivals/a_phonne.jpg" alt=""><span>iPhone</span></div></li>
+        <li><div class="product-item"><img src="arrivals/a_speaker.jpg" alt=""><span>Speaker</span></div></li>
+        <li><div class="product-item"><img src="arrivals/a_sub.jpg" alt=""><span>Subwoofer</span></div></li>
+        <li><div class="product-item"><img src="arrivals/a_tab.jpg" alt=""><span>Tablet</span></div></li>
+        <li><div class="product-item"><img src="arrivals/a_trimmer.jpeg" alt=""><span>Trimmer</span></div></li>
+        <li><div class="product-item"><img src="arrivals/a_tv.jpg" alt=""><span>TV</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner-2">
+    <img src="arrivals/banner-2.jpg" alt="banner-2"> 
+  </div>
+
+  <!-- Discount Section -->
+  <div class="discount-section" id="discounts">
+    <div class="discount"><h2>Discounts</h2></div>
+    <img src="discounts/dis_buds.jpg" alt="">
+    <img src="discounts/dis_phone.jpg" alt="">
+    <img src="discounts/dis_speak.jpg" alt="">
+    <img src="discounts/dis_tab.jpg" alt="">
+    <img src="discounts/dis_tv.jpg" alt="">
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-section">
+    &copy; 2025 My E-Commerce | All rights reserved
+  </div>
+</body>
+</html>
