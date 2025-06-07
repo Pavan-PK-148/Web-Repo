@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: monospace;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: hsl(0, 0%, 0%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    #header {
+      margin-top: 0;
+      width: 100%;
+      height: 100vh;
+      position: relative;
+    }
+
+    .right-bg {
+      position: absolute;
+      margin-top: 0;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background-image: url(bg2.png);
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .container {
+      padding: 5px 5%;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 200px;
+      height: auto;
+    }
+
+    nav ul li {
+      display: inline-block;
+      list-style: none;
+      margin: 5px 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+    }
+    nav ul li a::after {
+        content: '';
+        width: 0;
+        height: 3px;
+        background-color: rgba(223, 194, 24, 0.929);
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        transition: 0.3s;
+    }
+    nav ul li a:hover::after {
+        width: 100%;
+    }
+    .header-text {
+        margin-top: 15%;
+        font-size: 30px;
+    }
+    .header-text h1 {
+        font-size: 52px;
+        margin-top: 20px;
+    }
+    .header-text h1  {
+    background-image: linear-gradient(to right, rgba(255, 217, 0, 0.88), rgb(255, 255, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+    #about {
+      padding: 80px 0;
+      color: #ababab;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .about-img {
+      width: 100%;
+      display: block;
+      border-radius: 40px;
+    } 
+    .about-col-1 {
+      flex-basis: 35%;
+    }
+    .about-col-2 {
+      flex-basis: 60%;
+    }
+    .sub-title {
+      font-size: 60px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+    .tab-titles {
+      display: flex;
+      margin: 20px 0 40px;
+    }
+    .tab-links {
+      margin-right: 50px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-links::after {
+      content: '';
+      width: 0;
+      height: 3px;
+      background-color: rgba(223, 194, 24, 0.929);
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      transition: 0.3s;
+    }
+    .tab-links.active-link::after {
+      width: 50%;
+    }
+    .tab-contents ul li{
+      list-style: none;
+      margin: 10px 0;
+    }
+    .tab-contents ul li span {
+      color: rgba(245, 212, 27, 0.929);
+      font-size: 14px;
+    }
+    .tab-contents{
+      display: none;
+    }
+    .tab-contents.active-tab {
+      display: block;
+    }
+    .about-p {
+         font-size: 23px;
+         margin-bottom: 20px;
+    }
+    .tab-contents {
+      font-size: 20px;
+    }
+    .logo ul li {
+      margin-top: 0;
+    }
+    #services {
+      padding: 30px 0;
+    }
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+    }
+    .services-list div {
+      background: #262626;
+      padding: 30px;
+      font-size: 13px;
+      font-weight: 300;
+      border-radius: 10px;
+      transition: background 0.5s, transform 0.5s;
+    }
+    .services-list div i {
+      font-size: 50px;
+      margin-bottom: 30px;
+    }
+    .services-list div h2 {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    .services-list div a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 12px;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .services-list div:hover {
+      background-color: rgba(209, 181, 24, 0.929);
+      transform: translateY(-10px);
+    }
+    #portfolio {
+      padding: 50px 0;
+    }
+
+    .work-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+    }
+
+    .work {
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      height: 300px;
+      transition: transform 0.5s;
+    }
+    .layer {
+      width: 100%;
+      height: 0;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(209, 181, 20, 0.929));
+      border-radius: 10px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 40px;
+      text-align: center;
+      font-size: 14px;
+      transition: height 0.5s;
+    }
+    .layer h3 {
+      font-weight: 500;
+      margin-bottom: 20px;
+      
+    }
+    .layer a {
+      margin-top: 20px;
+      color: rgba(209, 181, 20, 0.929);
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 60px;
+      background: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+    }
+    .work:hover img {
+      transform: scale(1.1);
+    }
+    .work:hover .layer {
+      height: 100%;
+    }
+    .btn {
+      display: block;
+      margin: 50px auto;
+      width: fit-content;
+      border: 1px solid rgba(209, 181, 20, 0.929);
+      padding: 14px 50px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #fff;
+      transition: background 0.5s;
+    }
+    .btn:hover {
+      background: rgba(209, 181, 20, 0.929);
+      
+    }
+    .contact-left {
+      flex-basis: 35%;
+      
+    }
+    .contact-right {
+      flex-basis: 60%;
+    }
+    .contact-left p {
+      margin-top: 30px;
+    }
+    .contact-left p i {
+      color: rgba(242, 209, 21, 0.929);
+      margin-right: 25px;
+      font-size: 25px;
+    }
+    .social-icons {
+      margin-top: 30px;
+    }
+    .social-icons a {
+      text-decoration: none;
+      font-size: 30px;
+      margin-right: 15px;
+      color: #ababab;
+      display: inline-block;
+      transition: transform 0.5s;
+    }
+    .social-icons a:hover {
+      color: rgba(242, 209, 21, 0.929);
+      transform: translateY(-5px);
+    }
+    .btn.btn2 {
+       display: inline-block;
+       background: rgba(242, 209, 21, 0.929);
+    }
+
+    .contact-right form{
+       width: 100%;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: #262626;
+      padding: 15px;
+      margin: 15px 0;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 20px;
+    }
+    form .btn2 {
+      padding: 14px 60px;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .copyright {
+      width: 100%;
+      text-align: center;
+      padding: 25px 0;
+      background: #262626;
+      font-weight: 300;
+      margin-top: 20px;
+    }
+    nav .fa-solid {
+      display: none;
+    }
+
+    #msg {
+      color: #79de67;
+      margin-top: -40px;
+      display: block;
+    }
+    
+
+
+    @media (max-width: 768px) {
+      nav ul {
+        background: #111;
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        flex-direction: column;
+        width: 200px;
+        transition: right 0.3s ease-in;
+      }
+      nav ul.active {
+        right: 0;
+      }
+      .fa-bars,
+      .fa-circle-xmark {
+        display: block;
+      }
+      nav ul li {
+        margin: 15px 0;
+        text-align: center;
+      }
+    }
+
+    .header-text {
+      margin-top: 15%;
+      font-size: 30px;
+    }
+
+    .header-text h1 {
+      font-size: 52px;
+      margin-top: 20px;
+    }
+
+    .header-text h1  {
+      background-image: linear-gradient(to right, rgba(255, 217, 0, 0.865), rgba(255, 255, 255, 0.776));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #about {
+      padding: 80px 0;
+      color: #ababab;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .about-img {
+      width: 100%;
+      display: block;
+      border-radius: 40px;
+    }
+
+    .about-col-1 {
+      flex-basis: 35%;
+    }
+
+    .about-col-2 {
+      flex-basis: 60%;
+    }
+
+    .sub-title {
+      font-size: 60px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .tab-titles {
+      display: flex;
+      margin: 20px 0 40px;
+    }
+
+    .tab-links {
+      margin-right: 50px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tab-links::after {
+      content: '';
+      width: 0;
+      height: 3px;
+      background-color: rgba(223, 194, 24, 0.929);
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      transition: 0.3s;
+    }
+
+    .tab-links.active-link::after {
+      width: 50%;
+    }
+
+    .tab-contents ul li {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .tab-contents ul li span {
+      color: rgba(245, 212, 27, 0.929);
+      font-size: 14px;
+    }
+
+    .tab-contents {
+      display: none;
+      font-size: 20px;
+    }
+
+    .tab-contents.active-tab {
+      display: block;
+    }
+
+    .about-p {
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/2e02545a1d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="header">
+    <div class="right-bg"></div>
+
+    <div class="container">
+      <nav>
+        <img src="logo2.png" class="logo" />
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#Portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fa-solid fa-circle-xmark"></i>
+        </ul>
+        <i class="fa-solid fa-bars"></i>
+      </nav>
+      <div class="header-text">
+        <p>Web Developer</p>
+        <h1 id="name" class="intro-heading">Hi, I'm Pavan Kalyan</h1>
+      </div>
+    </div>
+  </div>
+  <!----About-->
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="pavan.jpg" alt="About image" class="about-img">
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About Me</h1>
+          <p class="about-p">I'm a passionate web developer with a strong foundation in HTML, CSS, and JavaScript.
+            I specialize in creating responsive, user-friendly interfaces and smooth web experiences.
+            I'm always eager to learn new technologies and build impactful digital solutions.
+            </p>
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+              <p class="tab-links" onclick="opentab('Projects')">Projects</p>
+              <p class="tab-links" onclick="opentab('Education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="Skills">
+              <ul>
+                <li><span>Web Development</span><br>Designing Responsive Websites and interfaces</li>
+                <li><span>DSA</span><br>Logic Building and Problem Solving</li>
+                <li><span>Java Programming</span><br>Object_Oriented_programming</li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="Projects">
+              <ul>
+                <li><span>Driver Drowsiness Detection</span><br>Used for detecting the Drowsiness</li>
+                <li><span>Portfolio Website</span><br>Showcase my designing and skills</li>
+                <li><span>E-Commerce Website</span><br>Product based site</li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="Education">
+              <ul>
+                <li><span>2008-2021 : School</span><br>Priyanka's Vidyodaya High School</li>
+                <li><span>2021-2023 : Inter</span><br>Sri Chaitanya Junior College</li>
+                <li><span>2023-2027 : B.Tech</span><br>GITAM University</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!----Services------>
+  <div id="services">
+    <div class="container">
+      <h1 class="sub-title">My Services</h1>
+      <div class="services-list">
+        <div>
+          <i class="fas fa-layer-group"></i>
+          <h2>Responsive Website Design</h2>
+          <p>I create modern, mobile-friendly websites that adapt to any screen size. Your site will look great on phones, tablets, and desktops.</p>
+          <a href="#">Learn more</a>
+        </div>
+        <div>
+          <i class="fa-solid fa-rocket"></i>
+          <h2>Custom Landing Pages</h2>
+          <p>I design clean, fast-loading landing pages tailored to your brand. These pages are perfect for promotions, products, or personal portfolios.</p>
+          <a href="#">Learn more</a>
+        </div>
+        <div>
+          <i class="fas fa-sync-alt"></i> 
+          <h2> Website Redesign & Optimization</h2>
+          <p>I help improve the look and performance of outdated websites. Expect a fresh UI, smoother navigation, and better user experience.</p>
+          <a href="#">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---My Work---->
+  <div id="Portfolio">
+    <div class="container">
+      <h1 class="sub-title">My Work</h1>
+      <div class="work-list">
+        <div class="work">
+          <img src="web.jpg">
+          <div class="layer">
+            <h3>Responsive Websites</h3>
+            <p>I build mobile-friendly websites that look perfect on all screen sizes and devices.</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="landing.jpg">
+          <div class="layer">
+            <h3>Custom Landing Pages</h3>
+            <p>I craft tailored landing pages that capture attention and drive user engagement effectively.</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="redesign.jpg">
+          <div class="layer">
+            <h3>Responsive Website Design</h3>
+            <p>I build mobile-friendly websites that look perfect on all screen sizes and devices.</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn">See More</a>
+    </div>
+  </div>
+  <!----Contact----->
+  <div id="contact">
+    <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="sub-title">Contact Me</h1>
+            <p><i class="fa-solid fa-paper-plane"></i> pavanrobba148@gmail.com</p>
+            <p><i class="fa-solid fa-square-phone-flip"></i> 91+ 9346005430</p>
+            <div class="social-icons">
+              <a href="https://facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <a href="resume2.html" download class="btn btn2">Download Resume</a>
+          </div>
+          <div class="contact-right">
+            <form name="submit-to-google-sheet" method="post">
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+              <input type="email" id="email" name="email" placeholder="Your Email" required>
+              <textarea id="message" name="message" rows="6" placeholder="Your Message"></textarea>
+              <button type="submit" class="btn btn2">Submit</button>
+            </form>
+            <span id="msg"></span>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&#169; 2025 Pavan Kalyan. All rights reserved.</p>
+        </div>
+    </div>
+  </div>
+  <script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname) {
+      for(tablink of tablinks){
+        tablink.classList.remove("active-link");
+      }
+      for(tabcontent of tabcontents){
+        tabcontent.classList.remove("active-tab");
+      }
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab");
+    }
+  </script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzVWGPN5uDtnqubWBzxs-kJTQlzGQsLAtT2Mx2M4kaXQLn-0-86Q6g1Pn1I-Zlf31m8Pw/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById("msg");
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML = "Message Sent Successfully..";
+          setTimeout(() => {
+            msg.innerHTML = "";
+          }, 5000);
+          form.reset();
+        })
+        .catch(error => console.error('Error!', error.message));
+    });
+
+    let name = document.getElementById('about-img');
+
+      window.addEventListener('scroll', () => {
+      let value = window.scrollY;
+  
+      about-img.style.margintop = value * 2.5 + 'px';
+  
+});
+
+  </script>
+  <script>
+    const contE1 = document.querySelector(".intro-heading");
+  
+  const careers = ["Pavan Kalyan", "a Web Developer", "a Programmer", "a Designer"];
+
+  let careerIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function updateText() {
+    let currentCareer = careers[careerIndex];
+    
+    if (isDeleting) {
+      charIndex--;
+    } else {
+      charIndex++;
+    }
+
+    contE1.textContent = `Hello, I'm ${currentCareer.slice(0, charIndex)}`;
+
+    if (!isDeleting && charIndex === currentCareer.length) {
+      isDeleting = true;
+      setTimeout(updateText, 1000); // pause before deleting
+      return;
+    }
+
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      careerIndex = (careerIndex + 1) % careers.length;
+    }
+
+    setTimeout(updateText, isDeleting ? 100 : 200);
+  }
+
+  updateText();
+
+  </script>
+</body>
+</html>

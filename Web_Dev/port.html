@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pavan Kalyan - Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      color: black;
+      background-color: rgba(224, 255, 255, 0.627);
+      font-family: Arial, Helvetica, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: rgb(22, 131, 209);
+      color: whitesmoke;
+      padding: 40px;
+      width: 100%;
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .logo h1 {
+      font-size: 30px;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      margin-left: 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: rgb(167, 199, 204);
+    }
+
+    nav button {
+      margin-left: 20px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .container {
+      padding-top: 100px;
+    }
+
+    section {
+      height: 100vh;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .img {
+      border-radius: 50%;
+      object-fit: cover;
+      height: 300px;
+      width: 300px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 38px;
+      color: rgb(26, 132, 225);
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .intro-heading {
+      font-size: 46px;
+      color: rgb(26, 132, 225);
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    footer {
+      background-color: rgb(22, 131, 209);
+      color: whitesmoke;
+      text-align: center;
+      padding: 20px;
+    }
+
+    a {
+      color: rgb(26, 132, 225);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    body.dark-mode header,
+    body.dark-mode footer {
+      background-color: #1f1f1f;
+      color: white;
+    }
+
+    body.dark-mode nav a:hover {
+      color: lightgrey;
+    }
+
+    body.dark-mode a {
+      color: lightblue;
+    }
+
+    body.dark-mode a:hover {
+      text-decoration: underline;
+    }
+    .h2 {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <h1>Pavan Kalyan</h1>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button id="toggleDark" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <img src="pavan.jpg" alt="Portrait of Pavan Kalyan" class="img">
+      <h2 class="intro-heading">Hello, I'm Pavan Kalyan</h2>
+      <p>Web Developer | Programmer | Designer</p>
+      <p>"Passionate web developer with a strong foundation in HTML, CSS, and JavaScript, dedicated to building clean, responsive, and user-friendly web applications."</p>
+    </section>
+
+    <section id="skills">
+      <h2 class="h2">Skills</h2>
+      <p>Web Development (HTML, CSS, JavaScript)</p>
+      <p>Java Programming</p>
+      <p>Python Programming</p>
+      <p>Data Structures using C and Java</p>
+      <p>C Programming</p>
+    </section>
+
+    <section id="projects">
+      <h2 class="h2">Projects</h2>
+      <p><strong>Library Management System</strong> – Created for updates in the library.</p>
+      <p><strong>Driver Drowsiness Detection</strong> – Created for detecting the drowsiness of drivers.</p>
+      <p><strong>Resume Website</strong> – To showcase my skills and talent.</p>
+    </section>
+
+    <section id="contact">
+      <h2 class="h2">Contact</h2>
+      <p>Email: <a href="mailto:pavanrobba148@gmail.com">pavanrobba148@gmail.com</a></p>
+      <p>LinkedIn: <a href="#">Pavan Kalyan</a></p>
+      <p>GitHub: <a href="#">pavankalyan</a></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Pavan Kalyan. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleDark");
+  
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    });
+  
+    const contE1 = document.querySelector(".intro-heading");
+  
+    const careers = ["Pavan Kalyan", "a Web Developer", "a Programmer", "a Designer"];
+  
+    let careerIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+  
+    function updateText() {
+      let currentCareer = careers[careerIndex];
+      
+      if (isDeleting) {
+        charIndex--;
+      } else {
+        charIndex++;
+      }
+  
+      contE1.textContent = `Hello, I'm ${currentCareer.slice(0, charIndex)}`;
+  
+      if (!isDeleting && charIndex === currentCareer.length) {
+        isDeleting = true;
+        setTimeout(updateText, 1000); // pause before deleting
+        return;
+      }
+  
+      if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        careerIndex = (careerIndex + 1) % careers.length;
+      }
+  
+      setTimeout(updateText, isDeleting ? 100 : 200);
+    }
+  
+    updateText();
+  </script>
+  
+</body>
+</html>

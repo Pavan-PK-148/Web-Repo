@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Assistant</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #00c9ff;
+      background-image: linear-gradient(45deg, #00c9ff, #92fe9d);
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎙️ Voice Assistant</h1>
+  <button onclick="startListening()">Start Listening</button>
+  <p id="output">Click the button and speak...</p>
+
+  <script>
+    const output = document.getElementById("output");
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+
+    recognition.onstart = () => {
+      output.textContent = "🎧 Listening...";
+    };
+
+    recognition.onresult = (event) => {
+      const spoken = event.results[0][0].transcript;
+      output.textContent = "🗣️ You said: " + spoken;
+      respond(spoken);
+    };
+
+    function startListening() {
+      recognition.start();
+    }
+
+    function respond(text) {
+      let response = "Sorry, I didn't get that.";
+
+      if (text.toLowerCase().includes("time")) {
+        response = "⏰ The current time is " + new Date().toLocaleTimeString();
+      } else if (text.toLowerCase().includes("hello")) {
+        response = "👋 Hello! How can I help you today?";
+      } else if (text.toLowerCase().includes("today date")) {
+        response = "📅 Today's date is " + new Date().toLocaleDateString();
+      }
+       else if(text.toLowerCase().includes("do you like me")) {
+        response = "Yes! I do love you";
+       }
+
+      output.textContent += "\n🤖 Assistant: " + response;
+
+      const utterance = new SpeechSynthesisUtterance(response);
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>

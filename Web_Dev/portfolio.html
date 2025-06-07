@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavan Kalyan - Portfolio</title>
+  <style>
+    :root {
+      --primary-color: #0077b6;
+      --text-color: #333;
+      --bg-color: #f0f8ff;
+      --font-family: 'Segoe UI', sans-serif;
+      --heading-font: 'Arial', sans-serif;
+      --button-font: 'Roboto', sans-serif;
+    }
+
+    body.dark-mode {
+      --primary-color: #0f4c75;
+      --text-color: #f0f0f0;
+      --bg-color: #121212;
+    }
+
+    body {
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth; /* This enables the smooth scrolling behavior */
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-family: var(--heading-font);
+      font-size: 32px;
+    }
+
+    header nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    header nav a:hover {
+      color: #90e0ef;
+    }
+
+    #toggleDark {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    section {
+      height: 100vh; /* Make each section take up the full viewport height */
+      padding: 50px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .hero img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-family: var(--heading-font);
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 24px;
+      font-family: var(--button-font);
+      color: var(--text-color);
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      font-size: 36px;
+      font-family: var(--heading-font);
+      color: var(--primary-color);
+      margin-bottom: 30px;
+    }
+
+    section ul {
+      list-style-type: none;
+      font-size: 20px;
+      font-family: var(--button-font);
+      color: var(--text-color);
+    }
+
+    section ul li {
+      margin: 15px 0;
+    }
+
+    a.button {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-family: var(--button-font);
+      transition: background-color 0.3s;
+    }
+
+    a.button:hover {
+      background-color: #90e0ef;
+    }
+
+    footer {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Rolling effect */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section {
+      transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pavan Kalyan</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button id="toggleDark" title="Toggle Dark Mode">🌙</button>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="hero">
+    <img src="pavan.jpg" alt="Pavan Kalyan" />
+    <h1>Hello, I'm <span id="typed"></span></h1>
+    <p>Web Developer | Programmer | Designer</p>
+    
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Web Development (HTML, CSS, JavaScript)</li>
+      <li>Java Programming</li>
+      <li>Python Programming</li>
+      <li>Data Structures using C and Java</li>
+      <li>C Programming</li>
+    </ul>
+    
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Library Management System</strong> - Created for updates in the library.</li>
+      <li><strong>Driver Drowsiness Detection</strong> - Created for detecting the drowsiness of driver.</li>
+      <li><strong>Resume Website</strong>-To showcase my skills and talent.</li>
+    </ul>
+    
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>You can reach me at:</p>
+    <ul>
+      <li>Email: pavanrobba148@gmail.com</li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/pavankalyan" target="_blank">Pavan Kalyan</a></li>
+      <li>GitHub: <a href="https://github.com/pavankalyan" target="_blank">pavankalyan</a></li>
+    </ul>
+    
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pavan Kalyan. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Dark Mode Toggle
+    const toggle = document.getElementById('toggleDark');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Typing Animation
+    const phrases = ['Pavan Kalyan', 'a Web Developer', 'a Programmer', 'a Designer'];
+    let i = 0, j = 0, currentPhrase = [], isDeleting = false, isEnd = false;
+
+    function loop() {
+      isEnd = false;
+      document.getElementById('typed').innerHTML = currentPhrase.join('');
+
+      if (i < phrases.length) {
+        if (!isDeleting && j <= phrases[i].length) {
+          currentPhrase.push(phrases[i][j]);
+          j++;
+          document.getElementById('typed').innerHTML = currentPhrase.join('');
+        }
+
+        if (isDeleting && j <= phrases[i].length) {
+          currentPhrase.pop(phrases[i][j]);
+          j--;
+          document.getElementById('typed').innerHTML = currentPhrase.join('');
+        }
+
+        if (j == phrases[i].length) {
+          isEnd = true;
+          isDeleting = true;
+        }
+
+        if (isDeleting && j === 0) {
+          currentPhrase = [];
+          isDeleting = false;
+          i++;
+          if (i === phrases.length) {
+            i = 0;
+          }
+        }
+      }
+      const speed = isEnd ? 2000 : isDeleting ? 50 : 100;
+      setTimeout(loop, speed);
+    }
+
+    loop();
+  </script>
+</body>
+</html>

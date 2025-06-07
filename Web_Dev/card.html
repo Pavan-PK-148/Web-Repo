@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Business Card</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d1117;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background-color: #161b22;
+      border-radius: 20px;
+      padding: 30px 40px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+      max-width: 350px;
+      width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid #00ffff;
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00ffff;
+    }
+
+    .role {
+      font-size: 16px;
+      color: #c9d1d9;
+      margin-bottom: 10px;
+    }
+
+    .email, .phone {
+      font-size: 14px;
+      color: #8b949e;
+      margin: 6px 0;
+    }
+
+    .socials {
+      margin-top: 15px;
+    }
+
+    .socials a {
+      text-decoration: none;
+      color: #00ffff;
+      margin: 0 10px;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    .socials a:hover {
+      color: #90e0ef;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="black.jpg" alt="Profile" class="profile-img" />
+    <div class="name">Pavan Kalyan</div>
+    <div class="role">Web Developer | Programmer</div>
+    <div class="email">📧 pavanrobba148@gmail.com</div>
+    <div class="phone">📞 +91 9346005430</div>
+    <div class="socials">
+      <a href="https://linkedin.com/in/pavankalyanrobba" target="_blank">LinkedIn</a>
+      <a href="https://github.com/pavankalyan" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+</body>
+</html>

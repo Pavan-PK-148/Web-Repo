@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eyes Animation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #000;
+      font-family: system-ui, sans-serif;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .eyes {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      margin: 0 20px;
+      border-radius: 50%;
+      box-shadow: 0 5px 45px rgba(0, 0, 0, 0.2), inset 0 0 25px #767574;
+      overflow: hidden;
+      animation: blink 4s infinite;
+    }
+
+    /* Pupil */
+    .eyes::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      transform: var(--pupil-transform, translate(-50%, -50%));
+      border-radius: 50%;
+      background: #000;
+      border: 5px solid var(--eye-color, blue);
+      transition: 0.1s linear;
+    }
+
+    /* Blinking animation */
+    @keyframes blink {
+      0%, 98%, 100% {
+        transform: scaleY(1);
+      }
+      99% {
+        transform: scaleY(0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="eyes"></div>
+    <div class="eyes"></div>
+  </div>
+
+  <script>
+    const eyes = document.querySelectorAll(".eyes");
+
+    // Apply random eye colors
+    eyes.forEach((eye) => {
+      const colors = ["lightblue", "lightgreen", "red", "purple", "orange"];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      eye.style.setProperty("--eye-color", randomColor);
+    });
+
+    // Move pupils on mouse movement
+    document.addEventListener("mousemove", (event) => {
+      eyes.forEach((eye) => {
+        const rect = eye.getBoundingClientRect();
+        const eyeCenterX = rect.left + rect.width / 2;
+        const eyeCenterY = rect.top + rect.height / 2;
+        const angle = Math.atan2(event.clientY - eyeCenterY, event.clientX - eyeCenterX);
+
+        const pupilX = Math.cos(angle) * 15;
+        const pupilY = Math.sin(angle) * 15;
+
+        eye.style.setProperty("--pupil-transform", `translate(-50%, -50%) translate(${pupilX}px, ${pupilY}px)`);
+      });
+    });
+  </script>
+</body>
+</html>
